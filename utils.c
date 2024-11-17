@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:20:17 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/14 23:48:52 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/15 21:33:11 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,19 @@ int	ft_strtoi(char *str)
 	int		sign;
 	long	num;
 
-	if (ft_strlen(str) > 11)
-		panic(2);
+	if (!str)
+		panic(6);
 	sign = 1;
 	num = 0;
 	if ((*str == '-' || *str == '+') && *str++ == '-')
 		sign = -1;
 	while (*str >= '0' && *str <= '9')
+	{
 		num = (num * 10) + ((*str++ - '0'));
-	if ((sign == 1 && num > 2147483647) || (sign == -1 && num > 2147483648))
-		panic(3);
+		if ((num * sign) > 2147483647 || (num * sign) < -2147483648)
+			panic(3);
+	}
+	if (*str)
+		panic(10);
 	return (num * sign);
 }

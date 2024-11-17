@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:21:39 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/15 00:03:35 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/15 21:28:51 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,18 @@
 t_numbers	*parse_args(int argc, char **argv)
 {
 	int			i;
+	int			number;
 	t_numbers	*numbers;
 	t_numbers	*curr;
 
 	i = 1;
 	numbers = NULL;
 	while (i < argc)
-		numbers_append(&numbers, numbers_new(ft_strtoi(argv[i++])));
+	{
+		number = ft_strtoi(argv[i++]);
+		if (numbers && numbers_find(numbers, number))
+			panic(9);
+		numbers_append(&numbers, numbers_new(number));
+	}
 	return (numbers);
 }
