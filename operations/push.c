@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:55:39 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/17 15:31:23 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 09:44:09 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	push(t_numbers **stack_src, t_numbers **stack_dst)
 		return ;
 	tmp = stack_src[0];
 	stack_src[0] = tmp->next;
+	tmp->next = NULL;
 	numbers_append_start(stack_dst, tmp);
 }
 

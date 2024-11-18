@@ -6,11 +6,11 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:20:17 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/15 21:33:11 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 11:00:27 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 size_t	ft_strlen(char *s)
 {

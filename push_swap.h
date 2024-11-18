@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:45 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/17 17:30:00 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 10:30:55 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ t_numbers	*parse_args(int argc, char **argv);
 t_numbers	*numbers_find(t_numbers *numbers, int number);
 void		numbers_append_start(t_numbers **numbers, t_numbers *new);
 t_numbers	*numbers_last(t_numbers *numbers);
+void		test_sort(t_numbers **a_stack, t_numbers **b_stack);
+size_t		numbers_size(t_numbers *numbers);
+char		**ft_split(char const *s, char c);
 
 void		sa(t_numbers **a_stack);
 void		sb(t_numbers **b_stack);

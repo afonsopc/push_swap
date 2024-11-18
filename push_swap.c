@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:24 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/17 17:12:43 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 10:03:04 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,25 @@
 // 15 - rotate - NULL param
 // 16 - reverse_rotate - NULL param
 
+#include <stdio.h>
+
+void	print_numbers(t_numbers *numbers)
+{
+	while (numbers)
+	{
+		printf("%d\n", numbers->number);
+		numbers = numbers->next;
+	}
+}
+
 int	main(int argc, char **argv)
 {
-	t_numbers	*numbers;
+	t_numbers	*a_stack;
+	t_numbers	*b_stack;
 
-	numbers = parse_args(argc, argv);
-	print_numbers(numbers);
-	write(1, "Hello push_swap! :)\n", 20);
+	a_stack = NULL;
+	b_stack = NULL;
+	a_stack = parse_args(argc, argv);
+	test_sort(&a_stack, &b_stack);
+	// write(1, "Hello push_swap! :)\n", 20);
 }
