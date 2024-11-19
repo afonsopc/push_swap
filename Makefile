@@ -1,9 +1,9 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = args.c error.c numbers.c numbers2.c \
+SRC = args.c error.c numbers1.c numbers2.c \
 	push.c rotate.c swap.c reverse_rotate.c \
-	radix_sort.c test_sort.c utils.c utils2.c \
+	radix_sort.c test_sort.c utils1.c utils2.c \
 	main.c
 OBJ = $(SRC:.c=.o)
 OBJDIR = obj/

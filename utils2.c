@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 21:44:09 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/19 20:58:37 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/19 21:12:23 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		panic(20);
-	strs = malloc((count_items(s, c) + 1) * sizeof(char *));
-	if (!strs)
-		panic(21);
+	strs = safe_malloc(21, (count_items(s, c) + 1) * sizeof(char *));
 	if (!split(s, c, strs))
 		panic(22);
 	return (strs);
