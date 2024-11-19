@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:24 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 10:03:04 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/19 20:49:12 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@
 // 14 - numbers_last - NULL param
 // 15 - rotate - NULL param
 // 16 - reverse_rotate - NULL param
+// 17 - numbers_size - NULL param
+// 18 - get_max_number - NULL return
+// 19 - is_numbers_ordered - NULL param
+// 20 - ft_split - NULL param
+// 21 - ft_split - Array allocation failure
+// 22 - ft_split - Item allocation failure
+// 23 - ft_strlcpy - NULL param
 
 #include <stdio.h>
 
@@ -37,6 +44,8 @@ void	print_numbers(t_numbers *numbers)
 	}
 }
 
+// write(1, "Hello push_swap! :)\n", 20);
+
 int	main(int argc, char **argv)
 {
 	t_numbers	*a_stack;
@@ -45,6 +54,7 @@ int	main(int argc, char **argv)
 	a_stack = NULL;
 	b_stack = NULL;
 	a_stack = parse_args(argc, argv);
-	test_sort(&a_stack, &b_stack);
-	// write(1, "Hello push_swap! :)\n", 20);
+	if (is_numbers_ordered(a_stack))
+		return (0);
+	radix_sort(&a_stack, &b_stack);
 }

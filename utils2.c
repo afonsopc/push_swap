@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   utils2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 21:44:09 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 11:00:24 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/19 20:58:37 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-static void	free_all(char **strs, size_t index)
+static void	free_all(char **strs, size_t i)
 {
-	while (index-- > 0)
-		free(strs[index]);
+	while (i--)
+		free(strs[i]);
 	free(strs);
 }
 
@@ -24,35 +24,31 @@ static int	count_items(char const *s, char c)
 	size_t	i;
 
 	i = 0;
-	while (*s && *s == c)
-		s++;
 	while (*s)
 	{
-		while (*s && *s != c)
-			s++;
 		while (*s && *s == c)
 			s++;
-		i++;
+		if (*s)
+			i++;
+		while (*s && *s != c)
+			s++;
 	}
 	return (i);
 }
 
-static size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+static void	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	src_len;
 	size_t	i;
 
+	if (!dst || !src)
+		panic(23);
 	i = 0;
-	src_len = ft_strlen((char *)src);
-	if (dstsize == 0)
-		return (src_len);
 	while (src[i] && i < dstsize - 1)
 	{
 		dst[i] = src[i];
 		i++;
 	}
 	dst[i] = '\0';
-	return (src_len);
 }
 
 static int	split(char const *s, char c, char **strs)
@@ -70,10 +66,7 @@ static int	split(char const *s, char c, char **strs)
 			s++;
 		strs[i] = malloc(s - start + 1);
 		if (!strs[i])
-		{
-			free_all(strs, i);
-			return (0);
-		}
+			return (free_all(strs, i), 0);
 		ft_strlcpy(strs[i], start, s - start + 1);
 		while (*s && *s == c)
 			s++;
@@ -88,11 +81,11 @@ char	**ft_split(char const *s, char c)
 	char		**strs;
 
 	if (!s)
-		return (NULL);
+		panic(20);
 	strs = malloc((count_items(s, c) + 1) * sizeof(char *));
 	if (!strs)
-		return (NULL);
+		panic(21);
 	if (!split(s, c, strs))
-		return (NULL);
+		panic(22);
 	return (strs);
 }

@@ -6,11 +6,11 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:24:48 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 11:00:15 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:55:41 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 t_numbers	*numbers_new(int number)
 {
@@ -33,8 +33,6 @@ t_numbers	*numbers_last(t_numbers *numbers)
 
 void	numbers_append(t_numbers **numbers, t_numbers *new)
 {
-	t_numbers	*curr;
-
 	if (!numbers || !new)
 		panic(5);
 	if (!numbers[0])

@@ -6,12 +6,12 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 15:32:30 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/17 17:27:23 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:55:41 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	reverse_rotate(t_numbers **stack)
 {

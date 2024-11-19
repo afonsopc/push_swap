@@ -6,20 +6,18 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/17 18:12:32 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 10:39:44 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:55:41 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 static void	sort(t_numbers **a_stack, t_numbers **b_stack)
 {
 	t_numbers	*a_curr;
-	t_numbers	*b_curr;
 	t_numbers	*curr_highest;
 
 	a_curr = a_stack[0];
-	b_curr = b_stack[0];
 	curr_highest = NULL;
 	while (a_curr)
 	{

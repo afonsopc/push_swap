@@ -6,11 +6,11 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 22:28:44 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 11:00:12 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/18 23:55:41 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	panic(int code)
 {

@@ -6,12 +6,11 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 21:55:39 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 09:44:09 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/19 18:08:10 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	push(t_numbers **stack_src, t_numbers **stack_dst)
 {
