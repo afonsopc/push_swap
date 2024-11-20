@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:45 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/20 10:23:40 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 23:16:50 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
 
 typedef struct s_numbers
 {
-	long			number;
+	long				number;
+	long				index;
 	struct s_numbers	*next;
 }	t_numbers;
 
@@ -37,7 +38,7 @@ size_t		numbers_size(t_numbers *numbers);
 char		**ft_split(char const *s, char c);
 void		radix_sort(t_numbers **a_stack, t_numbers **b_stack);
 int			is_numbers_ordered(t_numbers *numbers);
-long	numbers_min(t_numbers *numbers);
+void		numbers_update_indexes(t_numbers *numbers);
 
 void		sa(t_numbers **a_stack);
 void		sb(t_numbers **b_stack);

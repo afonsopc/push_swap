@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:28:17 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/20 16:23:56 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 23:18:52 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_numbers	*get_max_number(t_numbers *stack)
 	max = NULL;
 	while (stack)
 	{
-		if (!max || max->number < stack->number)
+		if (!max || max->index < stack->index)
 			max = stack;
 		stack = stack->next;
 	}
@@ -28,43 +28,23 @@ t_numbers	*get_max_number(t_numbers *stack)
 	return (max);
 }
 
-int	bit_len(long number)
-{
-	int	len;
-
-	len = 0;
-	while (number >> len)
-		len++;
-	return (len);
-}
-
-void	normalize_numbers(t_numbers *stack)
-{
-	long		min;
-
-	min = numbers_min(stack);
-	while (min < 0 && stack)
-	{
-		stack->number = stack->number + -min;
-		stack = stack->next;
-	}
-}
-
 void	radix_sort(t_numbers **a_stack, t_numbers **b_stack)
 {
 	size_t	size;
-	long	max_bit_len;
+	int		max_bit_len;
 	int		i;
 
-	normalize_numbers(a_stack[0]);
-	max_bit_len = bit_len(get_max_number(a_stack[0])->number);
+	size = get_max_number(a_stack[0])->index;
+	max_bit_len = 0;
+	while (size >> max_bit_len)
+		max_bit_len++;
 	i = 0;
-	while (i < max_bit_len)
+	while (i < max_bit_len && !is_numbers_ordered(a_stack[0]))
 	{
 		size = numbers_size(a_stack[0]);
 		while (size--)
 		{
-			if ((a_stack[0]->number >> i) & 1)
+			if ((a_stack[0]->index >> i) & 1)
 				ra(a_stack);
 			else
 				pb(a_stack, b_stack);

@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:24:48 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/20 10:23:40 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 22:46:32 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_numbers	*numbers_new(long number)
 	new = safe_malloc(5, sizeof(t_numbers));
 	new->next = NULL;
 	new->number = number;
+	new->index = 0;
 	return (new);
 }
 
@@ -36,11 +37,10 @@ void	numbers_append(t_numbers **numbers, t_numbers *new)
 	if (!numbers || !new)
 		panic(5);
 	if (!numbers[0])
-	{
 		numbers[0] = new;
-		return ;
-	}
-	numbers_last(numbers[0])->next = new;
+	else
+		numbers_last(numbers[0])->next = new;
+	numbers_update_indexes(numbers[0]);
 }
 
 void	numbers_append_start(t_numbers **numbers, t_numbers *new)
@@ -50,6 +50,7 @@ void	numbers_append_start(t_numbers **numbers, t_numbers *new)
 	if (numbers[0])
 		new->next = numbers[0];
 	numbers[0] = new;
+	numbers_update_indexes(numbers[0]);
 }
 
 t_numbers	*numbers_find(t_numbers *numbers, long number)
