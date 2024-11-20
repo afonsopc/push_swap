@@ -29,3 +29,21 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
+
+
+OS = $(shell uname)
+
+size ?= 10
+
+ifeq ($(OS),Linux)
+CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
+else
+CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
+endif
+
+test:
+	@$(eval ARG = $(shell seq -1000 1000 | shuf -n $(size)))
+	@echo "Checker result: "
+	$(CHECKER)
+	@echo "Instructions count: "
+	@./push_swap $(ARG) | wc -l

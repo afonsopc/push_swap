@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:28:17 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/19 19:54:46 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 01:06:33 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,16 @@ int	bit_len(int number)
 
 void	radix_sort(t_numbers **a_stack, t_numbers **b_stack)
 {
-	int			size;
+	size_t		size;
 	int			max_bit_len;
 	int			i;
 
 	max_bit_len = bit_len(get_max_number(a_stack[0])->number);
 	i = 0;
-	while (i < max_bit_len)
+	while (i < max_bit_len && !is_numbers_ordered(a_stack[0]))
 	{
 		size = numbers_size(a_stack[0]);
-		while (size--)
+		while (size-- && !is_numbers_ordered(a_stack[0]))
 		{
 			if ((absolute(a_stack[0]->number) >> i) & 1)
 				ra(a_stack);
@@ -67,7 +67,7 @@ void	radix_sort(t_numbers **a_stack, t_numbers **b_stack)
 				pb(a_stack, b_stack);
 		}
 		size = numbers_size(b_stack[0]);
-		while (size--)
+		while (numbers_size(b_stack[0]))
 			pa(a_stack, b_stack);
 		i++;
 	}
