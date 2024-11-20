@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:45 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/19 20:09:12 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:23:40 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 typedef struct s_numbers
 {
-	int					number;
+	long			number;
 	struct s_numbers	*next;
 }	t_numbers;
 
@@ -26,10 +26,10 @@ void		panic(int code);
 size_t		ft_strlen(char *s);
 int			ft_strtoi(char *str);
 void		*safe_malloc(int code, size_t size);
-t_numbers	*numbers_new(int number);
+t_numbers	*numbers_new(long number);
 void		numbers_append(t_numbers **lst, t_numbers *new);
 t_numbers	*parse_args(int argc, char **argv);
-t_numbers	*numbers_find(t_numbers *numbers, int number);
+t_numbers	*numbers_find(t_numbers *numbers, long number);
 void		numbers_append_start(t_numbers **numbers, t_numbers *new);
 t_numbers	*numbers_last(t_numbers *numbers);
 void		test_sort(t_numbers **a_stack, t_numbers **b_stack);
@@ -37,6 +37,7 @@ size_t		numbers_size(t_numbers *numbers);
 char		**ft_split(char const *s, char c);
 void		radix_sort(t_numbers **a_stack, t_numbers **b_stack);
 int			is_numbers_ordered(t_numbers *numbers);
+long	numbers_min(t_numbers *numbers);
 
 void		sa(t_numbers **a_stack);
 void		sb(t_numbers **b_stack);

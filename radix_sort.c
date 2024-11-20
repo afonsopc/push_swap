@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 20:28:17 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/20 01:06:33 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:23:56 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,45 +28,47 @@ t_numbers	*get_max_number(t_numbers *stack)
 	return (max);
 }
 
-unsigned int	absolute(int number)
-{
-	unsigned int	n;
-
-	n = number;
-	if (number < 0)
-		n = -number;
-	return (n);
-}
-
-int	bit_len(int number)
+int	bit_len(long number)
 {
 	int	len;
 
 	len = 0;
-	while (absolute(number) >> len)
+	while (number >> len)
 		len++;
 	return (len);
 }
 
+void	normalize_numbers(t_numbers *stack)
+{
+	long		min;
+
+	min = numbers_min(stack);
+	while (min < 0 && stack)
+	{
+		stack->number = stack->number + -min;
+		stack = stack->next;
+	}
+}
+
 void	radix_sort(t_numbers **a_stack, t_numbers **b_stack)
 {
-	size_t		size;
-	int			max_bit_len;
-	int			i;
+	size_t	size;
+	long	max_bit_len;
+	int		i;
 
+	normalize_numbers(a_stack[0]);
 	max_bit_len = bit_len(get_max_number(a_stack[0])->number);
 	i = 0;
-	while (i < max_bit_len && !is_numbers_ordered(a_stack[0]))
+	while (i < max_bit_len)
 	{
 		size = numbers_size(a_stack[0]);
-		while (size-- && !is_numbers_ordered(a_stack[0]))
+		while (size--)
 		{
-			if ((absolute(a_stack[0]->number) >> i) & 1)
+			if ((a_stack[0]->number >> i) & 1)
 				ra(a_stack);
 			else
 				pb(a_stack, b_stack);
 		}
-		size = numbers_size(b_stack[0]);
 		while (numbers_size(b_stack[0]))
 			pa(a_stack, b_stack);
 		i++;

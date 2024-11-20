@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   numbers.c                                          :+:      :+:    :+:   */
+/*   numbers1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:24:48 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 23:55:41 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:23:40 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_numbers	*numbers_new(int number)
+t_numbers	*numbers_new(long number)
 {
 	t_numbers	*new;
 
@@ -52,7 +52,7 @@ void	numbers_append_start(t_numbers **numbers, t_numbers *new)
 	numbers[0] = new;
 }
 
-t_numbers	*numbers_find(t_numbers *numbers, int number)
+t_numbers	*numbers_find(t_numbers *numbers, long number)
 {
 	if (!numbers)
 		panic(8);

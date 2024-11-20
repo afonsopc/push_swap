@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:24:48 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/19 20:09:54 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:23:40 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	numbers_size(t_numbers *numbers)
 
 int	is_numbers_ordered(t_numbers *numbers)
 {
-	int	last;
+	long	last;
 
 	if (!numbers)
 		panic(19);
@@ -39,4 +39,20 @@ int	is_numbers_ordered(t_numbers *numbers)
 		numbers = numbers->next;
 	}
 	return (1);
+}
+
+long	numbers_min(t_numbers *numbers)
+{
+	long	min;
+
+	if (!numbers)
+		panic(24);
+	min = numbers->number;
+	while (numbers)
+	{
+		if (numbers->number < min)
+			min = numbers->number;
+		numbers = numbers->next;
+	}
+	return (min);
 }

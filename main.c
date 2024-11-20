@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:24 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/19 20:49:12 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:15:39 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,7 @@
 // 21 - ft_split - Array allocation failure
 // 22 - ft_split - Item allocation failure
 // 23 - ft_strlcpy - NULL param
-
-#include <stdio.h>
-
-void	print_numbers(t_numbers *numbers)
-{
-	while (numbers)
-	{
-		printf("%d\n", numbers->number);
-		numbers = numbers->next;
-	}
-}
+// 24 - numbers_min - NULL param
 
 // write(1, "Hello push_swap! :)\n", 20);
 
