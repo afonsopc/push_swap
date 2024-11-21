@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = args.c error.c numbers1.c numbers2.c \
 	push.c rotate.c swap.c reverse_rotate.c \
 	radix_sort.c test_sort.c utils1.c utils2.c \
-	main.c
+	main.c three_sort.c
 OBJ = $(SRC:.c=.o)
 OBJDIR = obj/
 OBJS = $(addprefix $(OBJDIR), $(OBJ))
