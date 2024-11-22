@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:24 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/21 22:12:09 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:02:16 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,5 @@ int	main(int argc, char **argv)
 		four_five_sort(&a_stack, &b_stack);
 	else
 		radix_sort(&a_stack, &b_stack);
+	delete_all_numbers(a_stack);
 }

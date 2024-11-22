@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:24:48 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/20 23:17:08 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:03:42 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,17 @@ void	numbers_update_indexes(t_numbers *numbers)
 		}
 		curr1->index = index;
 		curr1 = curr1->next;
+	}
+}
+
+void	delete_all_numbers(t_numbers *numbers)
+{
+	t_numbers	*next;
+
+	while (numbers)
+	{
+		next = numbers->next;
+		free(numbers);
+		numbers = next;
 	}
 }
