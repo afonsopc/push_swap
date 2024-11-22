@@ -46,16 +46,17 @@ int	main(int argc, char **argv)
 	a_stack = NULL;
 	b_stack = NULL;
 	a_stack = parse_args(argc, argv);
-	if (is_numbers_ordered(a_stack))
-		return (0);
-	size = numbers_size(a_stack);
-	if (size < 3)
-		sa(&a_stack);
-	else if (size < 4)
-		three_sort(&a_stack);
-	else if (size < 6)
-		four_five_sort(&a_stack, &b_stack);
-	else
-		radix_sort(&a_stack, &b_stack);
+	if (!is_numbers_ordered(a_stack))
+	{
+		size = numbers_size(a_stack);
+		if (size < 3)
+			sa(&a_stack);
+		else if (size < 4)
+			three_sort(&a_stack);
+		else if (size < 6)
+			four_five_sort(&a_stack, &b_stack);
+		else
+			radix_sort(&a_stack, &b_stack);
+	}
 	delete_all_numbers(a_stack);
 }

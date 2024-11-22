@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	handle_both_cases(int *argc, char ***argv)
+int	handle_both_cases(int *argc, char ***argv)
 {
 	int		i;
 	char	**split_argv;
@@ -25,11 +25,13 @@ void	handle_both_cases(int *argc, char ***argv)
 			i++;
 		*argc = i;
 		*argv = split_argv;
+		return (1);
 	}
 	else
 	{
 		*argv = *argv + 1;
 		*argc = *argc - 1;
+		return (2);
 	}
 }
 
@@ -38,8 +40,9 @@ t_numbers	*parse_args(int argc, char **argv)
 	int			i;
 	int			number;
 	t_numbers	*numbers;
+	int			mode;
 
-	handle_both_cases(&argc, &argv);
+	mode = handle_both_cases(&argc, &argv);
 	i = 0;
 	numbers = NULL;
 	while (i < argc)
@@ -47,10 +50,15 @@ t_numbers	*parse_args(int argc, char **argv)
 	i = 0;
 	while (i < argc)
 	{
-		number = ft_strtoi(argv[i++]);
+		number = ft_strtoi(argv[i]);
+		if (mode == 1)
+			free(argv[i]);
+		i++;
 		if (numbers && numbers_find(numbers, number))
 			panic(9);
 		numbers_append(&numbers, numbers_new(number));
 	}
+	if (mode == 1)
+		free(argv);
 	return (numbers);
 }

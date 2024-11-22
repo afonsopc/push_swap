@@ -39,8 +39,6 @@ void	real_four_five_sort(t_numbers **a_stack, t_numbers **b_stack)
 	}
 }
 
-#include <stdio.h>
-
 void	specific_cases(t_numbers **a, t_numbers **b)
 {
 	int	fourth;
