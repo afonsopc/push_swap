@@ -1,0 +1,17 @@
+** TOO MUCH MOVES FOR THESE TESTS (MAX = 12) **
+
+./push_swap 3 4 2 1 5 | wc -l
+
+./push_swap 3 4 5 1 2 | wc -l
+
+./push_swap 3 4 1 5 2 | wc -l
+
+./push_swap 3 2 1 5 4 | wc -l
+
+./push_swap 3 4 5 2 1 | wc -l
+
+./push_swap 3 4 2 5 1 | wc -l
+
+./push_swap 3 2 5 4 1 | wc -l
+
+

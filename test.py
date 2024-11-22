@@ -19,7 +19,7 @@ def get_random_numbers(amount: int):
     numbers = []
     for _ in range(amount):
         while True:
-            number = str(random.randint(1, 1000))
+            number = str(random.randint(-10000, 10000))
             if number not in numbers:
                 numbers.append(number)
                 break
@@ -28,7 +28,7 @@ def get_random_numbers(amount: int):
 def test(amount: int):
     results = []
     print(f"Testing with {amount} numbers")
-    for i in range(10):
+    for i in range(1000):
         numbers = get_random_numbers(amount)
         command = f"./push_swap {' '.join(numbers)}"
         push_swap_process = subprocess.run(command, shell=True, capture_output=True, text=True)
@@ -55,6 +55,16 @@ def test(amount: int):
     print("Checker exit codes:", list(set([result["checker_exit_code"] for result in results])))
     return results
 
+test(1)
+print()
+test(2)
+print()
+test(3)
+print()
+test(4)
+print()
+test(5)
+print()
 test(100)
 print()
 test(500)

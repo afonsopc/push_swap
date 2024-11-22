@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:24 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/21 00:28:33 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/21 22:12:09 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 // 22 - ft_split - Item allocation failure
 // 23 - ft_strlcpy - NULL param
 // 24 - numbers_min - NULL param
+// 25 - ft_strtoi - No number
 
 // write(1, "Hello push_swap! :)\n", 20);
 
@@ -40,14 +41,20 @@ int	main(int argc, char **argv)
 {
 	t_numbers	*a_stack;
 	t_numbers	*b_stack;
+	size_t		size;
 
 	a_stack = NULL;
 	b_stack = NULL;
 	a_stack = parse_args(argc, argv);
 	if (is_numbers_ordered(a_stack))
 		return (0);
-	if (numbers_size(a_stack) == 3)
+	size = numbers_size(a_stack);
+	if (size < 3)
+		sa(&a_stack);
+	else if (size < 4)
 		three_sort(&a_stack);
+	else if (size < 6)
+		four_five_sort(&a_stack, &b_stack);
 	else
 		radix_sort(&a_stack, &b_stack);
 }

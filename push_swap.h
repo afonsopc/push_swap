@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 20:55:45 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/21 00:28:45 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/21 21:21:33 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ void		radix_sort(t_numbers **a_stack, t_numbers **b_stack);
 int			is_numbers_ordered(t_numbers *numbers);
 void		numbers_update_indexes(t_numbers *numbers);
 void		three_sort(t_numbers **a_stack);
+void		four_five_sort(t_numbers **a_stack, t_numbers **b_stack);
 
 void		sa(t_numbers **a_stack);
 void		sb(t_numbers **b_stack);
