@@ -6,7 +6,7 @@
 /*   By: afpachec <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 23:21:39 by afpachec          #+#    #+#             */
-/*   Updated: 2024/11/18 23:55:41 by afpachec         ###   ########.fr       */
+/*   Updated: 2024/11/22 16:06:40 by afpachec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,9 @@ t_numbers	*parse_args(int argc, char **argv)
 	handle_both_cases(&argc, &argv);
 	i = 0;
 	numbers = NULL;
+	while (i < argc)
+		ft_strtoi(argv[i++]);
+	i = 0;
 	while (i < argc)
 	{
 		number = ft_strtoi(argv[i++]);
